@@ -1,0 +1,514 @@
+{% extends 'base.html' %}
+{% block content %}
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            .navbar-brand{
+  text-decoration: none;
+  color: #333;
+  font-size: 29px;
+  padding: 18px;
+    }
+        .sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+.navbar {
+      background: #fff;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: top 0.3s;
+  width: 100%;
+  height: 60px;
+}
+ul{
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  padding: 25px;
+  font-size: 19px;
+
+}
+
+.navbar ul li a {
+    position: relative;
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px; 
+    width: 0;
+    height: 2px;
+    background: #333; 
+    transition: width 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #333; 
+}
+
+.navbar ul li a:hover::after {
+    width: 100%; 
+}
+.localNavbar{
+  width: 100%;
+  height: 85px;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.localNavbar .localNavbar-text{
+  width: 100%;
+  text-align: center;
+  background: #FFD700;
+  height: 50px;
+  padding-top: 10px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #333;
+}
+.localNavbar-icons{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+  padding-left: 20px;
+}
+.localNavbar-icons-1{
+  display: flex;
+  gap: 15px;
+}
+.localNavbar-icons-1 p i{
+  color: #FFD700;
+}
+.localNavbar-icons-1 p{
+  color: #333;
+
+}
+.localNavbar-icons-2 i{
+  padding-right: 10px;
+
+}
+    .Tool-1, .Tool-2, .Tool-3, .Tool-4, .Tool-5, .Tool-6, .Tool-7, .Tool-8{
+        width: 250px;
+    height: 370px;
+    background: #fff;
+    padding-top: 12px;
+    border-radius: 5px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .Tool-1 img{
+      width: 250px;
+    }
+    .Tool-2 img{
+      width: 250px;
+    }
+    .Tool-3 img{
+      width: 250px;
+      height: 250px;
+    }
+    .Tool-4 img{
+      width: 250px;
+      height: 250px;
+    }
+    .Tool-5 img{
+      width: 250px;
+      height: 250px;
+    }
+    .Tool-6 img{
+      width: 250px;
+      height: 250px;
+    }
+    .Tool-7 img{
+      width: 250px;
+      height: 250px;
+    }
+    .Tool-8 img{
+      width: 250px;
+      height: 250px;
+    }
+    .Tool-1:hover{
+         transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+    }
+    .Tool-2:hover{
+         transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+    }
+    .Tool-3:hover{
+         transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+    }
+    .Tool-4:hover{
+         transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+    }
+    .Tool-5:hover{
+         transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+    }
+    .Tool-6:hover{
+         transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+    }
+    .Tool-7:hover{
+         transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+    }
+    .Tool-8:hover{
+         transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+    }
+    .Tool-order-1{
+  gap: 50px;
+  height: 70vh;
+  overflow: hidden;
+  
+}
+.p-span span{
+  color: green;
+}
+.p-span{
+  color: #333;
+  font-size: 19px;
+  padding-top: 7px;
+}
+.Tool-order-1-text button{
+  width: 660px;
+  background: #333;
+  color: #fff;
+  margin-top: 13px;
+  height: 40px;
+  border-radius: 40px;
+  font-size: 15px;
+  transition: 0.5s;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+}
+.Tool-order-1-text button:hover{
+  background: #FFD700;
+}
+    </style>
+</head>
+<body>
+    
+   <nav class="localNavbar">
+    <div class="localNavbar-text">
+      <p>Summer Sale is Live UPTO 70% OFF</p>
+    </div>
+    <div class="localNavbar-icons">
+      <div class="localNavbar-icons-1">
+    <p><i class="fa-solid fa-phone"></i> +92 324-3338358</p>
+ <p>|</p>
+ <p>   <i class="fa-solid fa-envelope"></i>  E-shop@gmail.com</p>
+</div>
+      <div class="localNavbar-icons-2">
+        <a href="{% url 'logout' %}" style="padding-right: 40px; text-decoration:none;color:#333;"><i class="fa-solid fa-user"></i> Lgin in or Register |</a>
+      </div>
+    </div>
+  </nav>
+<nav class="navbar" id="mainNavbar">
+      <a class="navbar-brand" href="/">E-Shop</a>
+     <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/cart/">Organics</a></li>
+            <li><a href="/contact/">Contact</a></li>
+        </ul>
+</nav>
+
+
+
+<section class="kitchenTools" id="kitchenTools" style="display: flex; width:100%; padding-top:65px;flex-wrap:wrap;
+gap:40px; justify-content:center; margin-top:25px;">
+  <div class="Tool-1">
+    <p style="font-size: 15px; color:#333;text-align:center;" id="product-link-34">Happy Space Flame Lighter, Cute Creative ...</p>
+     <a href="" id="product-link-33"><img src="/static/img/shampo.jpg" alt="" style="margin-top: 5px;"></a>
+     <p style="text-align: center;padding-top:7px; font-size:16px;color:red;">Rs.399.00</p>
+  </div>
+  <div class="Tool-2">
+    <p style="font-size: 15px; color:#333;text-align:center;" id="product-link-35">17 In 1 Clever Buddy, Everyday Multitool With Flashlight...</p>
+      <a href="" id="product-link-36"><img src="/static/img/liter.webp" alt="" style="margin-top: 5px;"></a>
+     <p style="text-align: center;padding-top:7px; font-size:16px;color:red;">Rs.439.00</p>
+  </div>
+  <div class="Tool-3">
+    <p style="font-size: 15px; color:#333;text-align:center;" id="product-link-37">Colour Desktop Orbital, Table Decor Orbital Revolving Gadget...</p>
+    <a href="" id="product-link-38"><img src="/static/img/2D4AD40A-7054-411B-B367-3ED5B5689C3C.webp" alt="" style="margin-top: 5px;"></a>
+     <p style="text-align: center;padding-top:7px; font-size:16px;color:red;">Rs.599.00</p>
+  </div>
+  <div class="Tool-4">
+    <p style="font-size: 15px; color:#333;text-align:center;" id="product-link-39">Fruit and Vegetable Peeler, Stainless Steel Julienne Peeler...</p>
+     <a href="" id="product-link-40"><img src="/static/img/0157038E-4757-4856-8A6E-6A2D1B921B8F.webp" alt="" style="margin-top: 5px;"></a>
+     <p style="text-align: center;padding-top:7px; font-size:16px;color:red;">Rs.879.00</p>
+  </div>
+  <div class="Tool-5">
+    <p style="font-size: 15px; color:#333;text-align:center;" id="product-link-41">Three Flame Butane Gas Lighter, Refillable...</p>
+       <a href="" id="product-link-42"><img src="/static/img/b79.webp" alt="" style="margin-top: 5px;"></a>
+     <p style="text-align: center;padding-top:7px; font-size:16px;color:red;">Rs.399.00</p>
+  </div>
+  <div class="Tool-6">
+    <p style="font-size: 15px; color:#333;text-align:center;" id="product-link-44">3 In 1 Watermelon Slicer Scoop, Stainless Steel Fruit...</p>
+       <a href="" id="product-link-43"><img src="/static/img/5ea.webp" alt="" style="margin-top: 5px;"></a>
+     <p style="text-align: center;padding-top:7px; font-size:16px;color:red;">Rs.599.00</p>
+  </div>
+  <div class="Tool-7">
+    <p style="font-size: 15px; color:#333;text-align:center;" id="product-link-45">Happy Space Flame Lighter, Cute Creative ...</p>
+  <a href="" id="product-link-46"><img src="/static/img/D7AD8F6D-FB31-479F-A0D4-5FDDDCB1D18C.webp" alt="" style="margin-top: 5px;"></a>
+     <p style="text-align: center;padding-top:7px; font-size:16px;color:red;">Rs.899.00</p>
+  </div>
+  <div class="Tool-8">
+    <p style="font-size: 15px; color:#333;text-align:center;" id="product-link-47">14 In 1 Vegetable Chopper, Draining Vegetable Cutter...</p>
+       <a href="" id="product-link-48"><img src="/static/img/6F468C6C-474B-440D-A987-D3CE3D3CFA77.webp" alt="" style="margin-top: 5px;"></a>
+     <p style="text-align: center;padding-top:7px; font-size:16px;color:red;">Rs.399.00</p>
+  </div>
+</section>
+
+
+<div class="Tool-order-1" style="display: none; padding:45px;" id="loginOverlay17">
+    <div class="Tool-order-1-img">
+      <img src="/static/img/shampo.jpg" alt="" style="height: 300px;">
+    </div>
+  <div class="Tool-order-1-text">
+    <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Translucent Meatball Maker, Kitchen  <br>Extruded Meatball Making Tool, Meat Ball  Maker Mold, Plastic Meatball Shaper</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+    </div>
+</div>
+<!-- =============================== 2 ========================== -->
+<div class="Tool-order-1" style="display: none; padding:45px;" id="loginOverlay18">
+    <div class="Tool-order-1-img">
+      <img src="/static/img/liter.webp" alt="" style="height: 300px;">
+    </div>
+  <div class="Tool-order-1-text">
+    <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Translucent Meatball Maker, Kitchen  <br>Extruded Meatball Making Tool, Meat Ball  Maker Mold, Plastic Meatball Shaper</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+    </div>
+</div>
+
+<!-- ================================ 3 ========================== -->
+<div class="Tool-order-1" style="display: none; padding:45px;" id="loginOverlay19">
+    <div class="Tool-order-1-img">
+      <img src="/static/img/2D4AD40A-7054-411B-B367-3ED5B5689C3C.webp" alt="" style="height: 300px;">
+    </div>
+  <div class="Tool-order-1-text">
+    <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Translucent Meatball Maker, Kitchen  <br>Extruded Meatball Making Tool, Meat Ball  Maker Mold, Plastic Meatball Shaper</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+    </div>
+</div>
+
+<!-- ================================= 4 ========================== -->
+<div class="Tool-order-1" style="display: none; padding:45px;" id="loginOverlay20">
+    <div class="Tool-order-1-img">
+      <img src="/static/img/0157038E-4757-4856-8A6E-6A2D1B921B8F.webp" alt="" style="height: 300px;">
+    </div>
+  <div class="Tool-order-1-text">
+    <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Translucent Meatball Maker, Kitchen  <br>Extruded Meatball Making Tool, Meat Ball  Maker Mold, Plastic Meatball Shaper</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+    </div>
+</div>
+
+<!-- ============================= 5 ========================== -->
+<div class="Tool-order-1" style="display: none; padding:45px;" id="loginOverlay21">
+    <div class="Tool-order-1-img">
+      <img src="/static/img/b79.webp" alt="" style="height: 300px;">
+    </div>
+  <div class="Tool-order-1-text">
+    <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Translucent Meatball Maker, Kitchen  <br>Extruded Meatball Making Tool, Meat Ball  Maker Mold, Plastic Meatball Shaper</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+    </div>
+</div>
+
+<!-- ============================= 6 ========================== -->
+<div class="Tool-order-1" style="display: none; padding:45px;" id="loginOverlay22">
+    <div class="Tool-order-1-img">
+      <img src="/static/img/5ea.webp" alt="" style="height: 300px;">
+    </div>
+  <div class="Tool-order-1-text">
+    <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Translucent Meatball Maker, Kitchen  <br>Extruded Meatball Making Tool, Meat Ball  Maker Mold, Plastic Meatball Shaper</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+    </div>
+</div>
+
+<!-- ============================= 7 ========================== -->
+<div class="Tool-order-1" style="display: none; padding:45px;" id="loginOverlay23">
+    <div class="Tool-order-1-img">
+      <img src="/static/img/D7AD8F6D-FB31-479F-A0D4-5FDDDCB1D18C.webp" alt="" style="height: 300px;">
+    </div>
+  <div class="Tool-order-1-text">
+    <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Translucent Meatball Maker, Kitchen  <br>Extruded Meatball Making Tool, Meat Ball  Maker Mold, Plastic Meatball Shaper</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+    </div>
+</div>
+
+<!-- ============================= 8 ========================== -->
+<div class="Tool-order-1" style="display: none; padding:45px;" id="loginOverlay24">
+    <div class="Tool-order-1-img">
+      <img src="/static/img/6F468C6C-474B-440D-A987-D3CE3D3CFA77.webp" alt="" style="height: 300px;">
+    </div>
+  <div class="Tool-order-1-text">
+    <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Translucent Meatball Maker, Kitchen  <br>Extruded Meatball Making Tool, Meat Ball  Maker Mold, Plastic Meatball Shaper</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+    </div>
+</div>
+
+
+  <script>
+    const navbar = document.getElementById("mainNavbar");
+    const stickyPoint = navbar.offsetTop;
+    window.onscroll = function() {
+      if (window.pageYOffset >= stickyPoint) {
+        navbar.classList.add("sticky");
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    };
+  </script>
+<script>
+        const loginOverlay17 = document.getElementById('loginOverlay17');
+        const loginOverlay18 = document.getElementById('loginOverlay18');
+        const loginOverlay19 = document.getElementById('loginOverlay19');
+        const loginOverlay20 = document.getElementById('loginOverlay20');
+        const loginOverlay21 = document.getElementById('loginOverlay21');
+        const loginOverlay22 = document.getElementById('loginOverlay22');
+        const loginOverlay23 = document.getElementById('loginOverlay23');
+        const loginOverlay24 = document.getElementById('loginOverlay24');
+        const kitchenTools = document.getElementById('kitchenTools');
+
+    
+
+document.getElementById("product-link-33").addEventListener("click", function(e) {
+    e.preventDefault();
+      kitchenTools.style.display = 'none';     
+      loginOverlay17.style.display = 'flex'; 
+});
+document.getElementById("product-link-34").addEventListener("click", function(e) {
+    e.preventDefault();
+      kitchenTools.style.display = 'none';     
+      loginOverlay17.style.display = 'flex'; 
+});
+document.getElementById("product-link-35").addEventListener("click", function(e) {
+    e.preventDefault();
+      kitchenTools.style.display = 'none';     
+      loginOverlay18.style.display = 'flex'; 
+});
+document.getElementById("product-link-36").addEventListener("click", function(e) {
+    e.preventDefault();
+      kitchenTools.style.display = 'none';     
+      loginOverlay18.style.display = 'flex'; 
+});
+document.getElementById("product-link-37").addEventListener("click", function(e) {
+    e.preventDefault();
+      kitchenTools.style.display = 'none';     
+      loginOverlay19.style.display = 'flex'; 
+});
+document.getElementById("product-link-38").addEventListener("click", function(e) {
+    e.preventDefault();
+      kitchenTools.style.display = 'none';     
+      loginOverlay19.style.display = 'flex'; 
+});
+document.getElementById("product-link-39").addEventListener("click", function(e) {
+    e.preventDefault();
+      kitchenTools.style.display = 'none';     
+      loginOverlay20.style.display = 'flex'; 
+});
+document.getElementById("product-link-40").addEventListener("click", function(e) {
+    e.preventDefault();
+      kitchenTools.style.display = 'none';     
+      loginOverlay20.style.display = 'flex'; 
+});
+document.getElementById("product-link-41").addEventListener("click", function(e) {
+    e.preventDefault();
+      kitchenTools.style.display = 'none';     
+      loginOverlay21.style.display = 'flex'; 
+});
+document.getElementById("product-link-42").addEventListener("click", function(e) {
+    e.preventDefault();
+      kitchenTools.style.display = 'none';     
+      loginOverlay21.style.display = 'flex'; 
+});
+document.getElementById("product-link-43").addEventListener("click", function(e) {
+    e.preventDefault();
+      kitchenTools.style.display = 'none';     
+      loginOverlay22.style.display = 'flex'; 
+});
+document.getElementById("product-link-44").addEventListener("click", function(e) {
+    e.preventDefault();
+      kitchenTools.style.display = 'none';     
+      loginOverlay22.style.display = 'flex'; 
+});
+document.getElementById("product-link-45").addEventListener("click", function(e) {
+    e.preventDefault();
+      kitchenTools.style.display = 'none';     
+      loginOverlay23.style.display = 'flex'; 
+});
+document.getElementById("product-link-46").addEventListener("click", function(e) {
+    e.preventDefault();
+      kitchenTools.style.display = 'none';     
+      loginOverlay23.style.display = 'flex'; 
+});
+document.getElementById("product-link-47").addEventListener("click", function(e) {
+    e.preventDefault();
+      kitchenTools.style.display = 'none';     
+      loginOverlay24.style.display = 'flex'; 
+});
+document.getElementById("product-link-48").addEventListener("click", function(e) {
+    e.preventDefault();
+      kitchenTools.style.display = 'none';     
+      loginOverlay24.style.display = 'flex'; 
+});
+</script>
+</body>
+</html> 
+
+
+{% endblock %}

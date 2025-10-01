@@ -1,0 +1,221 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products Section</title>
+  <style>
+
+    .products-wrapper {
+      margin-top: 150px;
+      padding-top: 65px;
+      padding-left: 45px;
+      padding-right: 45px;
+      display: flex;
+       gap: 55px;
+       background: whitesmoke;
+       height: 80vh;
+    }
+
+    .product-column h3 {
+      font-size: 18px;
+      margin-bottom: 15px;
+       border-bottom: 1px solid #ddd;
+
+      padding-bottom: 5px;
+    }
+.product-column h3 span{
+      border-bottom: 2px solid #f0c040;
+       font-size: 18px;
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+}
+    .product-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+     
+      padding-bottom: 10px;
+    }
+
+    .product-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      margin-right: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .product-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-info h4 {
+      font-size: 13px;
+      margin: 0 0 5px 0;
+      color: #333;
+    }
+
+    .price {
+      color: red;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      font-size: 12px;
+      color: #888;
+      margin-left: 5px;
+    }
+
+    .big-banner img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    
+
+  </style>
+</head>
+<body>
+<section id="productSection">
+  <div class="products-wrapper" >
+
+    <!-- Featured Products -->
+    <div class="product-column">
+      <h3> <span>Featured</span> Products</h3>
+      <div class="product-item">
+       <a href="product1" > <img src="/static/img-1/image_ca42d64b-1e1b-44fe-9d2c-a1e6113a71fc (1).jpg" alt=""></a>
+        <div class="product-info">
+          <a href="product1" style="text-decoration: none;"><h4>Reusable 50 Sheets Tissue Roll</h4></a>
+          <div>
+            <span class="price">Rs.690</span>
+            <span class="old-price">Rs.1800</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-item">
+       <a href="product2"> <img src="/static/img-1/image_19a14132-99d8-4286-8039-47cb8bef3d76.webp" alt=""></a>
+        <div class="product-info">
+         <a href="product2" style="text-decoration:none"> <h4> Hand Gripper Strengthener</h4></a>
+          <div>
+            <span class="price">Rs.699</span>
+            <span class="old-price">Rs.950</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-item">
+        <a href="product3"><img src="/static/img-1/0B7AAF88-82EA-4227-AC4E-3A700A158ED4.webp" alt=""></a>
+        <div class="product-info">
+         <a href="product3" style="text-decoration: none;"> <h4>10Pcs Aluminium Stove Disposable</h4> </a>
+          <div>
+            <span class="price">Rs.499</span>
+            <span class="old-price">Rs.700</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Onsale Products -->
+    <div class="product-column">
+      <h3> <span>Onsale</span> Products</h3>
+      <div class="product-item">
+         <a href="product4"><img src="/static/img-1/56615255-AD05-48F3-A34F-F12DF4DAB2E7.webp" alt=""></a>
+        <div class="product-info">
+         <a href="product4" style="text-decoration: none;"> <h4>2L Refrigerator Water Bottle</h4></a>
+          <div>
+            <span class="price">Rs.2499</span>
+            <span class="old-price">Rs.3550</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-item">
+       <a href="product5"><img src="/static/img-1/300ml.webp" alt=""></a>
+        <div class="product-info">
+         <a href="product5" style="text-decoration: none;"> <h4>300ml Oil Spray Bottle</h4></a>
+          <div>
+            <span class="price">Rs.999</span>
+            <span class="old-price">Rs.1550</span>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="product-item">
+       <a href="product6"> <img src="/static/img-1/3-peice.webp" alt=""></a>
+        <div class="product-info">
+         <a href="product6" style="text-decoration: none;"><h4>3 Pcs Stainless Steel Sieve</h4></a>
+          <div>
+            <span class="price">Rs.1399</span>
+            <span class="old-price">Rs.2250</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pakistan's Choice -->
+    <div class="product-column">
+      <h3> <span>Pakistan's</span> Choice</h3>
+      <div class="product-item">
+       <a href="product7" style="text-decoration: none;"><img src="/static/img-1/4.jpg" alt=""></a>
+        <div class="product-info">
+         <a href="product7" style="text-decoration: none;"> <h4>Set Of 3 Kitchen Towels</h4></a>
+          <div>
+            <span class="price">Rs.350</span>
+            <span class="old-price">Rs.650</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-item">
+       <a href="product8" style="text-decoration: none;"> <img src="/static/img-1/remot.jpg" alt=""> </a>
+        <div class="product-info">
+          <a href="product8" style="text-decoration: none;"><h4>Silicon Rabbit RC Cover</h4> </a>
+          <div>
+            <span class="price">Rs.350</span>
+            <span class="old-price">Rs.550</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-item">
+        <a href="product9" style="text-decoration: none;"><img src="/static/img-1/2.jpg" alt=""></a>
+        <div class="product-info">
+         <a href="product9" style="text-decoration: none;"><h4>Food Grade Silicone Spoon Holder</h4></a>
+          <div>
+            <span class="price">Rs.299</span>
+            <span class="old-price">Rs.450</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Big Banner -->
+    <div class="big-banner" >
+      <a href="product10"><img src="/static/img-1/banner.webp" alt="Banner"></a>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+</body>
+</html>
+
+
+{% endblock %}

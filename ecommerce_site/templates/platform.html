@@ -1,0 +1,233 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best Online Selling Platform in Pakistan</title>
+  <style>
+
+
+    .content-section {
+      max-width: 1000px;
+      margin: 60px auto;
+      background: #fff;
+      padding: 60px 80px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+         background: #fafafa;
+      color: #333;
+      line-height: 1.9;
+    }
+
+    .content-section h1 {
+      text-align: center;
+      font-size: 42px;
+      margin-bottom: 30px;
+      color: #222;
+      font-family: "Segoe UI", sans-serif;
+      position: relative;
+    }
+
+    .content-section h1::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 4px;
+      background: linear-gradient(90deg, #ff6a00, #ee0979);
+      margin: 15px auto 0 auto;
+      border-radius: 3px;
+    }
+
+    .content-section p {
+      font-size: 18px;
+      text-align: justify;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    .content-section p strong {
+      color: #ee0979;
+    }
+
+    /* Drop cap styling for first paragraph */
+    .content-section p:first-letter {
+      font-size: 38px;
+      font-weight: bold;
+      float: left;
+      margin-right: 10px;
+      color: #ff6a00;
+    }
+        .navbar-brand{
+  text-decoration: none;
+  color: #333;
+  font-size: 29px;
+  padding: 18px;
+    }
+    .navbar-brand{
+  text-decoration: none;
+  color: #333;
+  font-size: 29px;
+  padding: 18px;
+    }
+.navbar {
+      background: #fff;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: top 0.3s;
+  width: 100%;
+  height: 60px;
+}
+ul{
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  padding: 25px;
+  font-size: 19px;
+
+}
+
+.navbar ul li a {
+    position: relative;
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px; 
+    width: 0;
+    height: 2px;
+    background: #333; 
+    transition: width 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #333; 
+}
+
+.navbar ul li a:hover::after {
+    width: 100%; 
+}
+
+.localNavbar{
+  width: 100%;
+  height: 85px;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.localNavbar .localNavbar-text{
+  width: 100%;
+  text-align: center;
+  background: #FFD700;
+  height: 50px;
+  padding-top: 10px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #333;
+}
+.localNavbar-icons{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+  padding-left: 20px;
+}
+.localNavbar-icons-1{
+  display: flex;
+  gap: 15px;
+}
+.localNavbar-icons-1 p i{
+  color: #FFD700;
+}
+.localNavbar-icons-1 p{
+  color: #333;
+
+}
+.localNavbar-icons-2 i{
+  padding-right: 10px;
+
+}
+    .sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+    }
+    .nonen{
+        text-decoration: none;
+        font-size: 19px;
+    }
+  </style>
+</head>
+<body>
+
+      <nav class="localNavbar">
+    <div class="localNavbar-text">
+      <p>Summer Sale is Live UPTO 70% OFF</p>
+    </div>
+    <div class="localNavbar-icons">
+      <div class="localNavbar-icons-1">
+         <p><i class="fa-solid fa-phone"></i> +92 324-3338358</p>
+        <p>|</p>
+        <p><i class="fa-solid fa-envelope"></i> E-shop@gmail.com</p>
+      </div>
+        <div class="localNavbar-icons-2">
+          <a href="{% url 'logout' %}" style="padding-right: 40px; text-decoration:none;color:#333;"><i class="fa-solid fa-user"></i> Lgin in or Register |</a>
+      </div>
+    </div>
+  </nav>
+ 
+  <nav class="navbar" id="mainNavbar">
+    <a class="navbar-brand" href="/">E-Shop</a>
+    <ul style="list-style:none; display:flex; margin:0; padding:0;">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/cart/">Organics</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </nav>   
+  <div class="content-section">
+    <h1>Best Online Selling Platform in Pakistan</h1>
+    <p>
+      In recent years, Pakistan has witnessed tremendous growth in the field of e-commerce, making it one of the fastest-emerging markets in South Asia. With increasing internet penetration, digital payment methods, and the rise of smartphone users, online selling has become not just a trend but a necessity for businesses to grow and reach wider audiences. Among the top platforms, <strong>Daraz</strong> stands out as the largest and most popular e-commerce marketplace in the country. It offers millions of products, ranging from electronics and fashion to groceries and household goods, making it a trusted name for both buyers and sellers.
+    </p>
+    <p>
+      Another strong contender is <strong>OLX</strong>, which has revolutionized the way people buy and sell used items online. Whether it’s cars, bikes, furniture, or gadgets, OLX provides a simple and direct way for individuals to connect with buyers, creating opportunities for fast and cost-effective sales. Its user-friendly interface and wide range of categories make it one of the go-to platforms for second-hand goods.
+    </p>
+    <p>
+      Additionally, international platforms like <strong>Shopify</strong> have empowered Pakistani entrepreneurs to create their own branded online stores and sell both locally and globally. This has opened doors for small and medium businesses to reach customers beyond borders and compete in international markets without needing a physical presence.
+    </p>
+    <p>
+      Emerging platforms like <strong>E-Shop</strong> and several local startups are also playing a key role in boosting Pakistan’s digital economy. By supporting small vendors, artisans, and local brands, they are giving everyone a chance to showcase their products online and grow their business in a highly competitive environment.
+    </p>
+    <p>
+      These platforms not only provide convenience to consumers but also generate employment, promote cashless transactions, and encourage entrepreneurship. With government initiatives supporting digitalization, and consumer trust in online shopping steadily increasing, the future of e-commerce in Pakistan looks brighter than ever before. For modern businesses, building a strong presence on these platforms is not optional anymore—it is essential for long-term survival and growth in today’s digital world.
+    </p>
+    <h2 style="color: #333; text-align:center;">After Read This You Know That Our Website Is The Best In The World</h2>
+  </div> 
+    <script>
+    const navbar = document.getElementById("mainNavbar");
+    const stickyPoint = navbar.offsetTop;
+    window.onscroll = function() {
+      if (window.pageYOffset >= stickyPoint) {
+        navbar.classList.add("sticky");
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    };
+  </script>
+</body>
+</html>
+
+{% endblock %}

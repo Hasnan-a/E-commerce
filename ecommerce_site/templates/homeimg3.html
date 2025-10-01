@@ -1,0 +1,550 @@
+{% extends "base.html" %}
+   {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+
+    .sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .navbar-brand{
+  text-decoration: none;
+  color: #333;
+  font-size: 29px;
+  padding: 18px;
+    }
+.navbar {
+      background: #fff;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: top 0.3s;
+  width: 100%;
+  height: 60px;
+}
+ul{
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  padding: 25px;
+  font-size: 19px;
+
+}
+
+.navbar ul li a {
+    position: relative;
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px; 
+    width: 0;
+    height: 2px;
+    background: #333; 
+    transition: width 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #333; 
+}
+
+.navbar ul li a:hover::after {
+    width: 100%; 
+}
+.localNavbar{
+  width: 100%;
+  height: 85px;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.localNavbar .localNavbar-text{
+  width: 100%;
+  text-align: center;
+  background: #FFD700;
+  height: 50px;
+  padding-top: 10px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #333;
+}
+.localNavbar-icons{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+  padding-left: 20px;
+}
+.localNavbar-icons-1{
+  display: flex;
+  gap: 15px;
+}
+.localNavbar-icons-1 p i{
+  color: #FFD700;
+}
+.localNavbar-icons-1 p{
+  color: #333;
+
+}
+.localNavbar-icons-2 i{
+  padding-right: 10px;
+
+}
+.ourferniter{
+    width: 100%;
+    background: whitesmoke;
+    padding: 25px;
+}
+.ourferniter h1{
+    text-align: center;
+    color: #333;
+}
+
+.ourferniter-img{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding-top: 45px;
+    gap: 30px;
+}
+.ourferniter-img img{
+    width: 250px;
+    height: 250px;
+    margin-top: 6px;
+    border-radius: 5px;
+}
+.ourtools-img-1:hover{
+     transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+.ourtools-img-2:hover{
+     transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+.ourtools-img-3:hover{
+     transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+.ourtools-img-4:hover{
+     transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+.ourtools-img-5:hover{
+     transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+.ourtools-img-6:hover{
+     transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+.ourtools-img-7:hover{
+     transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+.ourtools-img-8:hover{
+     transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+.ourtools-img-1,.ourtools-img-2,.ourtools-img-3,.ourtools-img-4,.ourtools-img-5,.ourtools-img-6
+,.ourtools-img-7,.ourtools-img-8{
+    width: 250px;
+    height: 370px;
+    background: #fff;
+    padding-top: 12px;
+    border-radius: 5px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.p{
+    font-size: 17px;
+ text-decoration: none;
+ color: #333;
+ transition: 0.5s;
+}
+.p:hover{
+    color: #FFD700;
+}
+ .toolSection{
+  margin-top: 67.2px;
+  
+}
+
+.p{
+    font-size: 17px;
+ text-decoration: none;
+ color: #333;
+ transition: 0.5s;
+}
+.p:hover{
+    color: #FFD700;
+}
+.img-1{
+  gap: 50px;
+  height: 70vh;
+  overflow: hidden;
+  
+}
+.p-span span{
+  color: green;
+}
+.p-span{
+  color: #333;
+  font-size: 19px;
+  padding-top: 7px;
+}
+.img-1-text button{
+  width: 660px;
+  background: #333;
+  color: #fff;
+  margin-top: 13px;
+  height: 40px;
+  border-radius: 40px;
+  font-size: 15px;
+  transition: 0.5s;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+}
+.img-1-text button:hover{
+  background: #FFD700;
+}
+    </style>
+</head>
+<body>
+       <nav class="localNavbar">
+    <div class="localNavbar-text">
+      <p>Summer Sale is Live UPTO 70% OFF</p>
+    </div>
+    <div class="localNavbar-icons">
+      <div class="localNavbar-icons-1">
+    <p><i class="fa-solid fa-phone"></i> +92 324-3338358</p>
+ <p>|</p>
+ <p>   <i class="fa-solid fa-envelope"></i>  E-shop@gmail.com</p>
+</div>
+      <div class="localNavbar-icons-2">
+        <a href="{% url 'logout' %}" style="padding-right: 40px; text-decoration:none;color:#333;"><i class="fa-solid fa-user"></i> Lgin in or Register |</a>
+      </div>
+    </div>
+  </nav>
+<nav class="navbar" id="mainNavbar">
+      <a class="navbar-brand" href="/">E-Shop</a>
+     <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/cart/">Organics</a></li>
+            <li><a href="/contact/">Contact</a></li>
+        </ul>
+</nav>
+
+
+<section class="ferniterSection" id="ferniterSection">
+    <div class="ourferniter">
+ <h1>FERNITER ESSENTIALS</h1>
+ <div class="ourferniter-img">
+  <!-- ===================== images ============================= -->
+    <div class="ourtools-img-1">
+        <a href="" class="p" id="product-link-17">Translucent Meatball Maker, <br> Kitchen Extruded... </a>
+        <a href="" id="product-link-18"><img src="/static/img/pent.jpeg" alt=""></a>
+        <br>
+        <p style="padding-top: 6px;color:red;">Rs.1,599.00</p>
+    </div>
+
+    <div class="ourtools-img-2">
+        <a href="" class="p" id="product-link-19">Multifunctional Electric Hot Pot,<br> Nonstick Hot...</a>
+        <a href="" id="product-link-20"><img src="/static/img/shirt.jpeg" alt=""></a>
+        <br>
+        <p style="padding-top: 6px;color:red;">Rs.2,499.00</p>
+    </div>
+    <div class="ourtools-img-3">
+        <a href="" class="p" id="product-link-21">4 Grids Dried Fruit Tray With  <br> Dust Proo...</a>
+        <a href="" id="product-link-22"><img src="/static/img/pentcot.jpeg" alt=""></a>
+        <br>
+        <p style="padding-top: 6px;color:red;">Rs.1,799.00</p>
+    </div>
+    <div class="ourtools-img-4">
+        <a href="" class="p" id="product-link-23">Multipurpose Stainless Steel Stove <br> Heat... </a>
+        <a href="" id="product-link-24"><img src="/static/img/trozer.jpeg" alt=""></a>
+        <br>
+        <p style="padding-top: 6px;color:red;">Rs.499.00</p>
+    </div>
+    <div class="ourtools-img-5">
+        <a href="" class="p" id="product-link-25">Double Sided Sandwich Maker, <br> Non Stick...</a>
+        <a href="" id="product-link-26"><img src="/static/img/halfsleef.jpeg" alt=""></a>
+        <br>
+        <p style="padding-top: 6px;color:red;">Rs.999.00</p>
+    </div>
+    <div class="ourtools-img-6">
+        <a href="" class="p" id="product-link-27">Double Sided Sandwich Maker, <br> Non Stick ... </a>
+        <a href="" id="product-link-28"><img src="/static/img/wolf.jpeg" alt=""></a>
+        <br>
+        <p style="padding-top: 6px;color:red;">Rs.250.00</p>
+    </div>
+ 
+    <div class="ourtools-img-7">
+        <a href="" class="p" id="product-link-29">Egg Shell Opener, Quick Peel And <br> Yolk Separator... </a>
+        <a href="" id="product-link-30"><img src="/static/img/lather.jpeg" alt=""></a>
+        <br>
+        <p style="padding-top: 6px;color:red;">Rs.450.00</p>
+    </div>
+    <div class="ourtools-img-8">
+        <a href="" class="p" id="product-link-31">Set Of 3 Superfine Fiber <br> Kitchen Dishwashing... </a>
+        <a href="" id="product-link-32"><img src="/static/img/short.jpeg" alt=""></a>
+        <br>
+        <p style="padding-top: 6px;color:red;">Rs.450.00</p>
+    </div>
+ </div>
+ </div>
+</section>
+
+
+
+ <div class="img-1" style="  display:none; margin-top:0px; padding: 45px;"id="loginOverlay9">
+    <div class="img-1-img">
+      <img src="/static/img/pent.jpeg" alt="" style="height: 400px; width: 450px;">
+    </div>
+  <div class="img-1-text">
+  <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Double Sided Sandwich Maker, Non Stick Iron Bread Toast Machine, Manual Mini Sandwich Maker, Portable Sandwich Maker Machine</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+  </div>
+</div>
+ <div class="img-1" style=" margin-top:0px; padding: 45px; display:none;"id="loginOverlay10">
+    <div class="img-1-img">
+      <img src="/static/img/shirt.jpeg" alt="" style="height: 400px; width: 450px;">
+    </div>
+  <div class="img-1-text">
+  <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Double Sided Sandwich Maker, Non Stick Iron Bread Toast Machine, Manual Mini Sandwich Maker, Portable Sandwich Maker Machine</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+  </div>
+</div>
+ <div class="img-1" style=" margin-top:0px; padding: 45px; display:none;"id="loginOverlay11">
+    <div class="img-1-img">
+      <img src="/static/img/pentcot.jpeg" alt="" style="height: 400px; width: 450px;">
+    </div>
+  <div class="img-1-text">
+  <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Double Sided Sandwich Maker, Non Stick Iron Bread Toast Machine, Manual Mini Sandwich Maker, Portable Sandwich Maker Machine</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+  </div>
+</div>
+ <div class="img-1" style=" margin-top:0px; padding: 45px; display:none;"id="loginOverlay12">
+    <div class="img-1-img">
+      <img src="/static/img/trozer.jpeg" alt="" style="height: 400px; width: 450px;">
+    </div>
+  <div class="img-1-text">
+  <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Double Sided Sandwich Maker, Non Stick Iron Bread Toast Machine, Manual Mini Sandwich Maker, Portable Sandwich Maker Machine</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+  </div>
+</div>
+ <div class="img-1" style=" margin-top:0px; padding: 45px; display:none;"id="loginOverlay13">
+    <div class="img-1-img">
+      <img src="/static/img/halfsleef.jpeg" alt="" style="height: 400px; width: 450px;">
+    </div>
+  <div class="img-1-text">
+  <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Double Sided Sandwich Maker, Non Stick Iron Bread Toast Machine, Manual Mini Sandwich Maker, Portable Sandwich Maker Machine</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+  </div>
+</div>
+ <div class="img-1" style=" margin-top:0px; padding: 45px; display:none;"id="loginOverlay14">
+    <div class="img-1-img">
+      <img src="/static/img/wolf.jpeg" alt="" style="height: 400px; width: 450px;">
+    </div>
+  <div class="img-1-text">
+  <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Double Sided Sandwich Maker, Non Stick Iron Bread Toast Machine, Manual Mini Sandwich Maker, Portable Sandwich Maker Machine</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+  </div>
+</div>
+ <div class="img-1" style=" margin-top:0px; padding: 45px; display:none;"id="loginOverlay15">
+    <div class="img-1-img">
+      <img src="/static/img/lather.jpeg" alt="" style="height: 400px; width: 450px;">
+    </div>
+  <div class="img-1-text">
+  <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Double Sided Sandwich Maker, Non Stick Iron Bread Toast Machine, Manual Mini Sandwich Maker, Portable Sandwich Maker Machine</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+  </div>
+</div>
+ <div class="img-1" style=" margin-top:0px; padding: 45px; display:none;"id="loginOverlay16">
+    <div class="img-1-img">
+      <img src="/static/img/short.jpeg" alt="" style="height: 400px; width: 450px;">
+    </div>
+  <div class="img-1-text">
+  <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Double Sided Sandwich Maker, Non Stick Iron Bread Toast Machine, Manual Mini Sandwich Maker, Portable Sandwich Maker Machine</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+  </div>
+</div>
+  <script>
+    const navbar = document.getElementById("mainNavbar");
+    const stickyPoint = navbar.offsetTop;
+    window.onscroll = function() {
+      if (window.pageYOffset >= stickyPoint) {
+        navbar.classList.add("sticky");
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    };
+  </script>
+<script>
+            const loginBtn = document.getElementById('loginBtn');
+    const ferniterSection = document.getElementById('ferniterSection');
+    const loginOverlay9 = document.getElementById('loginOverlay9');
+    const loginOverlay10 = document.getElementById('loginOverlay10');
+    const loginOverlay11 = document.getElementById('loginOverlay11');
+    const loginOverlay12 = document.getElementById('loginOverlay12');
+    const loginOverlay13 = document.getElementById('loginOverlay13');
+    const loginOverlay14 = document.getElementById('loginOverlay14');
+    const loginOverlay15 = document.getElementById('loginOverlay15');
+    const loginOverlay16 = document.getElementById('loginOverlay16');
+
+    
+
+document.getElementById("product-link-17").addEventListener("click", function(e) {
+    e.preventDefault();
+      ferniterSection.style.display = 'none';     
+      loginOverlay9.style.display = 'flex'; 
+});
+
+
+document.getElementById("product-link-18").addEventListener("click", function(e) {
+    e.preventDefault();
+   ferniterSection.style.display = 'none';     
+      loginOverlay9.style.display = 'flex'; 
+});
+document.getElementById("product-link-19").addEventListener("click", function(e) {
+    e.preventDefault();
+      ferniterSection.style.display = 'none';     
+      loginOverlay10.style.display = 'flex'; 
+});
+
+
+document.getElementById("product-link-20").addEventListener("click", function(e) {
+    e.preventDefault();
+   ferniterSection.style.display = 'none';     
+      loginOverlay10.style.display = 'flex'; 
+});
+document.getElementById("product-link-21").addEventListener("click", function(e) {
+    e.preventDefault();
+      ferniterSection.style.display = 'none';     
+      loginOverlay11.style.display = 'flex'; 
+});
+
+
+document.getElementById("product-link-22").addEventListener("click", function(e) {
+    e.preventDefault();
+   ferniterSection.style.display = 'none';     
+      loginOverlay11.style.display = 'flex'; 
+});
+document.getElementById("product-link-23").addEventListener("click", function(e) {
+    e.preventDefault();
+      ferniterSection.style.display = 'none';     
+      loginOverlay12.style.display = 'flex'; 
+});
+
+
+document.getElementById("product-link-24").addEventListener("click", function(e) {
+    e.preventDefault();
+   ferniterSection.style.display = 'none';     
+      loginOverlay12.style.display = 'flex'; 
+});
+document.getElementById("product-link-25").addEventListener("click", function(e) {
+    e.preventDefault();
+      ferniterSection.style.display = 'none';     
+      loginOverlay13.style.display = 'flex'; 
+});
+
+
+document.getElementById("product-link-26").addEventListener("click", function(e) {
+    e.preventDefault();
+   ferniterSection.style.display = 'none';     
+      loginOverlay13.style.display = 'flex'; 
+});
+document.getElementById("product-link-27").addEventListener("click", function(e) {
+    e.preventDefault();
+      ferniterSection.style.display = 'none';     
+      loginOverlay14.style.display = 'flex'; 
+});
+
+
+document.getElementById("product-link-28").addEventListener("click", function(e) {
+    e.preventDefault();
+   ferniterSection.style.display = 'none';     
+      loginOverlay14.style.display = 'flex'; 
+});
+document.getElementById("product-link-29").addEventListener("click", function(e) {
+    e.preventDefault();
+      ferniterSection.style.display = 'none';     
+      loginOverlay15.style.display = 'flex'; 
+});
+
+
+document.getElementById("product-link-30").addEventListener("click", function(e) {
+    e.preventDefault();
+   ferniterSection.style.display = 'none';     
+      loginOverlay15.style.display = 'flex'; 
+});
+document.getElementById("product-link-31").addEventListener("click", function(e) {
+    e.preventDefault();
+      ferniterSection.style.display = 'none';     
+      loginOverlay16.style.display = 'flex'; 
+});
+
+
+document.getElementById("product-link-32").addEventListener("click", function(e) {
+    e.preventDefault();
+   ferniterSection.style.display = 'none';     
+      loginOverlay16.style.display = 'flex'; 
+});
+
+</script>
+</body>
+</html>
+{% endblock %}

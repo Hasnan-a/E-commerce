@@ -1,0 +1,508 @@
+{% extends 'base.html' %}
+{% block content %}
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar with Contact Section</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .navbar-brand{
+  text-decoration: none;
+  color: #333;
+  font-size: 29px;
+  padding: 18px;
+    }
+.navbar {
+      background: #fff;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: top 0.3s;
+  width: 100%;
+  height: 60px;
+}
+ul{
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  padding: 25px;
+  font-size: 19px;
+
+}
+
+.navbar ul li a {
+    position: relative;
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px; 
+    width: 0;
+    height: 2px;
+    background: #333; 
+    transition: width 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #333; 
+}
+
+.navbar ul li a:hover::after {
+    width: 100%; 
+}
+
+.localNavbar{
+  width: 100%;
+  height: 85px;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.localNavbar .localNavbar-text{
+  width: 100%;
+  text-align: center;
+  background: #FFD700;
+  height: 50px;
+  padding-top: 10px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #333;
+}
+.localNavbar-icons{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+  padding-left: 20px;
+}
+.localNavbar-icons-1{
+  display: flex;
+  gap: 15px;
+}
+.localNavbar-icons-1 p i{
+  color: #FFD700;
+}
+.localNavbar-icons-1 p{
+  color: #333;
+
+}
+.localNavbar-icons-2 i{
+  padding-right: 10px;
+
+}
+    .sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+    }
+.contact-us { 
+  display: flex;
+
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 10px;
+  gap: 70px;
+  background: #ffffff;
+}
+.contact-us-img img{
+   width: 450px;
+   height: 350px;
+   border-radius: 5px;
+}
+
+.contact-us-text h1{
+   font-size: 49px;
+   color: #333;
+  font-weight: bolder;
+}
+.contact-us-text h1 span{
+  color: #FFD700;
+}
+.contact-us-text p{
+  font-size: 19px;
+  padding-top: 7px;
+
+}
+
+
+.contact-us-text a.order-btn
+ {
+   display: inline-flex;
+   align-items: center;
+    gap: 10px; 
+    padding: 14px 32px; 
+    background: linear-gradient(135deg, #ff6a00, #ee0979);
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none; 
+    font-weight: 600;
+    font-size: 16px; 
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+     transition: all 0.3s ease;
+     margin-top: 29px; 
+     margin-left: 130px;
+    } 
+     .contact-us-text a.order-btn:hover 
+     {
+       background: linear-gradient(135deg, #ee0979, #ff6a00);
+       box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+       transform: translateY(-3px);
+       } 
+        .order-btn i 
+       { 
+        font-size: 18px; 
+        animation: bounceRight 1.5s infinite;
+       } 
+       @keyframes bounceRight { 0%,
+         100% { 
+          transform: translateX(0); 
+      } 50% {
+         transform: translateX(6px); } 
+    }
+
+
+    .contact-container {
+       background: #fff;
+    width: 550px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+     box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+     border-radius: 10px;
+      
+    }
+
+    .contact-container h2 {
+        text-align: center;
+        color: #333;
+       margin-bottom: 15px;
+           font-size: 39px;
+    }
+
+    .inputBox {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .inputBox in,
+    .inputBox te {
+        width: 320px;
+        padding: 10px 10px;
+        font-size: 16px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        outline: none;
+        transition: all 0.3s ease;
+        resize: none;
+        height: 40px;
+        margin-top: 10px;
+    }
+    .inputBox input {
+        width: 450px;
+      padding: 12px 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: none;
+      outline: none;
+      height: 60px;
+      border-radius: 7px;
+    }
+
+    .inputBox textarea {
+    
+           width: 450px;
+     
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      background: none;
+      outline: none;
+      height: 140px;
+    }
+
+    .inputBox span {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #999;
+        pointer-events: none;
+        transition: 0.3s;
+    }
+
+    .inputBox input:focus,
+    .inputBox textarea:focus {
+        border-color: darkred;
+    }
+
+    .inputBox input:focus + span,
+    .inputBox input:valid + span,
+    .inputBox textarea:focus + span,
+    .inputBox textarea:valid + span {
+        top: -10px;
+        left: 8px;
+        font-size: 12px;
+        color: darkred;
+        background: #fff;
+        padding: 0 4px;
+    }
+
+    button {
+        width: 100%;
+      padding: 12px;
+      background: darkred;
+      color: #fff;
+      font-size: 19px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 25px;
+    }
+
+
+    /* Messages */
+    #successMessage {
+        text-align: center;
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    #successMessage.error {
+        color: red;
+    }
+
+    #successMessage.success {
+        color: green;
+    }
+    .contactForm{
+      display: flex;
+      padding: 45px;
+      margin-top: 30px;
+    }
+        .contact-icon{
+      margin-top: 210px;
+      margin-left: 20px;
+    }
+
+
+    .email .icon-email{
+      font-size: 25px;
+      color: #000;
+    
+      
+    }
+     .email .icon-email i{
+  color: darkred;
+  font-size: 30px;
+  padding-right: 10px;
+
+     }
+     .contactForm{
+      gap: 60px;
+     }
+          
+    
+      .p{
+        font-size: 19px;
+    padding-left: 40px;
+    padding-top: 3px;
+      }
+      .p-1{
+        font-size: 19px;
+    padding-left: 30px;
+    padding-top: 3px;
+      }
+      html{
+        scroll-behavior: smooth;
+      }
+       .gmap {
+         margin-top: 20px;
+         }
+    iframe { 
+      width: 100%; 
+      height: 400px;
+      border: none;
+       border-radius: 8px;
+       }
+
+
+     
+  </style>
+</head>
+<body>
+
+  
+  <nav class="localNavbar">
+    <div class="localNavbar-text">
+      <p>Summer Sale is Live UPTO 70% OFF</p>
+    </div>
+    <div class="localNavbar-icons">
+      <div class="localNavbar-icons-1">
+        <p><i class="fa-solid fa-phone"></i> +92 324-3338358</p>
+        <p>|</p>
+        <p><i class="fa-solid fa-envelope"></i> E-shop@gmail.com</p>
+      </div>
+      <div class="localNavbar-icons-2">
+          <a href="{% url 'logout' %}" style="padding-right: 40px; text-decoration:none;color:#333;"><i class="fa-solid fa-user"></i> Lgin in or Register |</a>
+      </div>
+    </div>
+  </nav>
+
+ 
+  <nav class="navbar" id="mainNavbar">
+    <a class="navbar-brand" href="/">E-Shop</a>
+    <ul style="list-style:none; display:flex; margin:0; padding:0;">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/cart/">Organics</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </nav>    
+
+  <!-- ========================================= contact ======================================== -->
+  <section class="contactSection" >
+    <div class="contact-us">
+      <div class="contact-us-img">
+        <a href="/product11/"><img src="/static/img-1/contact-img.jpeg" alt=""></a>
+      </div>
+      <div class="contact-us-text">
+        <h1>Welcome Order  And <span> Buy </span> <br>ON E-Shop</h1> 
+        <p>We're not just about code — we're about connection. </p>  <p>Reach out for collaborations, support, or to start your </p> <p>next big project. Our experts are ready for you, Order </p><p>Our Deleviry in just  1 day He taken not a Lot Time . </p>
+    <a href="#contactForm" class="order-btn"> Order Now <i class="fa-solid fa-arrow-right"></i> </a>
+      </div>
+      </div>
+
+ </section>
+
+        <!-- ================= ======================= -->
+         <section class="contactForm" id="contactForm">
+      <div class="contact-form">
+        <div class="contact-container">
+          <form id="contactFormElement" method="POST" novalidate>
+    {% csrf_token %}
+    <h2>Order Now</h2>
+    <div class="inputBox">
+        <input type="text" name="name" required>
+        <span>Name</span>
+    </div>
+    <div class="inputBox">
+        <input type="email" name="email" required>
+        <span>Email</span>
+    </div>
+    <div class="inputBox">
+        <textarea name="message" required></textarea>
+        <span>Your Order</span>
+    </div>
+    <button type="submit">Send Message</button>
+    <p id="successMessage"></p>
+</form>
+
+</div>
+      </div>
+
+
+      
+<div class="contact-icon">
+  <div class="email">
+  <p class="icon-email"><i class="fa fa-envelope"></i> Email</p>
+  <p class="p">E-Shop@example.com</p>
+  </div>
+ <br><br>
+  <div class="email">
+  <p class="icon-email"><i class="fa fa-map-marker-alt"></i>Our Locatin</p>
+  <p class="p-1">Nisar Calony Faislabad Coom Soon</p>
+  </div>
+<br><br>
+  <div class="email">
+  <p class="icon-email"><i class="fa fa-clock"></i>Our Timming</p>
+  <p class="p">Full-Week| 12 Hours Of Day</p>
+ 
+
+  </div>
+
+
+</div>
+</section>
+
+<section class="location">
+ <div class="gmap">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3758.493661176233!2d73.06432635343108!3d31.376764211748874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39225d46da14b705%3A0x7417925bfe09d8!2sStreet%206%2C%20Faisalabad%2C%20Pakistan!5e1!3m2!1sen!2s!4v1758962858560!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+
+
+<script>
+const form = document.getElementById('contactFormElement');
+const successMsg = document.getElementById('successMessage');
+
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+    
+    const name = form.querySelector('input[name="name"]').value.trim();
+    const email = form.querySelector('input[name="email"]').value.trim();
+    const message = form.querySelector('textarea[name="message"]').value.trim();
+
+    if(!name || !email || !message){
+        successMsg.textContent = "⚠️ Please fill all the fields!";
+        successMsg.className = "error";
+        return;
+    }
+
+    // Show waiting message
+    successMsg.textContent = "⏳ Message sending, please wait...";
+    successMsg.className = "waiting";
+
+    const formData = new FormData(form);
+
+    fetch("", {
+        method: "POST",
+        body: formData,
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.success){
+            successMsg.textContent = "✅ Your message has been sent successfully!";
+            successMsg.className = "success";
+            form.reset();
+        } else {
+            successMsg.textContent = "❌ Something went wrong!";
+            successMsg.className = "error";
+        }
+    })
+    .catch(err => {
+        successMsg.textContent = "⚠️ Server error, please try again later.";
+        successMsg.className = "error";
+        console.log(err);
+    });
+});
+</script>
+
+</body>
+</html>
+
+{% include "footer.html" %}
+
+
+{% endblock %}
+

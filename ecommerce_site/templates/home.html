@@ -1,0 +1,484 @@
+
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Professional Hero Slider</title>
+  <style>
+
+
+    .sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .navbar-brand{
+  text-decoration: none;
+  color: #333;
+  font-size: 29px;
+  padding: 18px;
+    }
+.navbar {
+      background: #fff;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: top 0.3s;
+  width: 100%;
+  height: 60px;
+}
+ 
+ul{
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  padding: 25px;
+  font-size: 19px;
+
+}
+
+.navbar ul li a {
+    position: relative;
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px; 
+    width: 0;
+    height: 2px;
+    background: #333; 
+    transition: width 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #333; 
+}
+
+.navbar ul li a:hover::after {
+    width: 100%; 
+}
+.localNavbar{
+  width: 100%;
+  height: 85px;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.localNavbar .localNavbar-text{
+  width: 100%;
+  text-align: center;
+  background: #FFD700;
+  height: 50px;
+  padding-top: 10px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #333;
+}
+.localNavbar-icons{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+  padding-left: 20px;
+}
+.localNavbar-icons-1{
+  display: flex;
+  gap: 15px;
+}
+.localNavbar-icons-1 p i{
+  color: #FFD700;
+}
+.localNavbar-icons-1 p{
+  color: #333;
+
+}
+.localNavbar-icons-2 i{
+  padding-right: 10px;
+
+}
+
+    /* ----- SLIDER LAYOUT ----- */
+    .hero-slider{
+      position:relative;
+      width:100%;
+      max-height:80vh; /* change if you want taller/shorter */
+      height:70vh;
+      overflow:hidden;
+    }
+
+    .slides{
+      display:flex;
+      height:100%;
+      transition:transform 600ms cubic-bezier(.2,.8,.2,1);
+      will-change:transform;
+    }
+
+    .slide{
+      min-width:100%;
+      height:100%;
+      position:relative;
+      user-select:none;
+      -webkit-user-drag:none;
+      flex-shrink:0;
+      
+    }
+
+    .slide img{
+     
+    width: 1264px;
+      height:350px;
+      object-fit:cover;
+      display:block;
+      pointer-events:none;
+    
+    }
+
+    /* subtle dark overlay so text is readable   z-index: 1000; */
+     
+
+    /* caption / hero text */
+    .caption{
+      position:absolute;
+      left:31%;
+      bottom:56%;
+      max-width:50%;
+      z-index:4;
+      color:white;
+      text-shadow:0 6px 18px rgba(0,0,0,0.6);
+    }
+    .caption h2{
+      font-size:clamp(22px, 3.6vw, 48px);
+      line-height:1.02;
+      margin-bottom:10px;
+      letter-spacing: -0.6px;
+    }
+    .caption p{
+      font-size:clamp(14px, 1.2vw, 18px);
+      margin-bottom:12px;
+      opacity:0.95;
+      font-size: 50px;
+    }
+    .btn{
+      display:inline-block;
+      padding:10px 18px;
+      background:transparent;
+      border:2px solid rgba(255,255,255,0.95);
+      color:#fff;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+      transition:all .25s ease;
+    }
+    .btn:hover{background:rgba(255,255,255,0.08);transform:translateY(-2px)}
+
+    /* arrows */
+    .nav{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      z-index:6;
+      width:46px;height:46px;
+      border-radius:50%;
+      background:rgba(0,0,0,0.35);
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;
+      backdrop-filter: blur(4px);
+      border:1px solid rgba(255,255,255,0.06);
+      transition:background .18s, transform .12s;
+      color:#fff;font-size:22px;
+    }
+    .nav:hover{background:rgba(0,0,0,0.55);transform:scale(1.03)}
+    .nav.prev{left:18px}
+    .nav.next{right:18px}
+
+    /* dots */
+    .dots{
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:98px;
+      z-index:7;
+      display:flex;
+      gap:10px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background:rgba(255,255,255,0.35);
+      border:0;cursor:pointer;
+      transition:transform .18s, background .18s;
+      outline: none;
+    }
+    .dot[aria-current="true"]{
+      background:white;
+      transform:scale(1.25);
+      box-shadow:0 6px 18px rgba(0,0,0,0.45);
+    }
+
+    /* small-screen tweaks */
+    @media (max-width:800px){
+      .caption{left:6%;right:6%;max-width:88%;}
+      .caption p{display:block}
+      .nav{width:40px;height:40px;font-size:18px}
+    }
+    @media (max-width:480px){
+      .caption h2{font-size:20px}
+      .caption p{display:none}
+      .hero-slider{height:55vh}
+    }
+ 
+
+  </style>
+</head>
+<body>
+
+
+   <nav class="localNavbar">
+    <div class="localNavbar-text">
+      <p>Summer Sale is Live UPTO 70% OFF</p>
+    </div>
+    <div class="localNavbar-icons">
+      <div class="localNavbar-icons-1">
+    <p><i class="fa-solid fa-phone"></i> +92 324-3338358</p>
+ <p>|</p>
+ <p>   <i class="fa-solid fa-envelope"></i>  E-shop@gmail.com</p>
+</div>
+      <div class="localNavbar-icons-2">
+        <a href="{% url 'logout' %}" style="padding-right: 40px; text-decoration:none;color:#333;"><i class="fa-solid fa-user"></i> Lgin in or Register |</a>
+      </div>
+    </div>
+  </nav>
+<nav class="navbar" id="mainNavbar">
+      <a class="navbar-brand" href="/">E-Shop</a>
+     <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/cart/">Organics</a></li>
+            <li><a href="/contact/">Contact</a></li>
+        </ul>
+</nav>
+
+
+<!-- ---- section ----  -->
+
+<section class="homeSection" id="homeSection">
+
+
+  <div class="hero-slider" aria-roledescription="carousel" aria-label="Homepage hero">
+    <div class="slides">
+      <!-- Slide 1 -->
+      <section class="slide" data-index="0" aria-hidden="false">
+      <a href="/homeimg1/">  <img src="/static/img/IMG_3067.webp" alt="Slide 1 description" loading="lazy" ></a>
+      </section>
+
+      <!-- Slide 2 -->
+      <section class="slide" data-index="1" aria-hidden="true">
+        <a href="/homeimg2/"><img src="/static/img/furniterbrand.jpeg" alt="Slide 2 description" loading="lazy"></a>
+      </section>
+
+      <!-- Slide 3 -->
+      <section class="slide" data-index="2" aria-hidden="true">
+       <a href="/homeimg3/"> <img src="/static/img/cloth.jpeg" alt="Slide 3 description" loading="lazy"></a>
+       <div class="caption">
+       <p>Visit Our Clothes for buy</p>
+       </div>
+    </section>
+    </div>
+
+    <button class="nav prev" aria-label="Previous slide">&larr;</button>
+    <button class="nav next" aria-label="Next slide">&rarr;</button>
+
+    <div class="dots" role="tablist" aria-label="Slide dots"></div>
+  </div>
+ 
+  <!------ end slider ------->
+
+</section>
+
+<section id="home3Section" style="margin-top: 24px; padding-left: 23px;">
+  <p style="font-size: 20px; font-weight:bold; color:#333;">Welcome to E-Site: <br>Best Online Shopping Store in Pakistan</p>
+<p style="padding-top: 20px; font-size:17px;">
+Looking for the best <br>
+<span style="color: blue;">online shopping store in Pakistan?</span> Your search ends here at E-Site, where we offer a seamless online shopping experience for a wide range of products, from home gadgets  to exquisite home decoration items. ...</p>
+<br>
+
+<a href="/cart/" style="text-decoration: none; font-size:17px; color:#000;">Visit Carts...</a>
+</section>
+
+
+
+
+
+
+  <script>
+    const navbar = document.getElementById("mainNavbar");
+    const stickyPoint = navbar.offsetTop;
+    window.onscroll = function() {
+      if (window.pageYOffset >= stickyPoint) {
+        navbar.classList.add("sticky");
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    };
+  </script>
+
+
+  <script>
+    (function(){
+      const slider = document.querySelector('.hero-slider');
+      const slidesContainer = slider.querySelector('.slides');
+      const slides = Array.from(slider.querySelectorAll('.slide'));
+      const prevBtn = slider.querySelector('.nav.prev');
+      const nextBtn = slider.querySelector('.nav.next');
+      const dotsWrap = slider.querySelector('.dots');
+
+      let index = 0;
+      const total = slides.length;
+      const AUTOPLAY_MS = 5000;
+      let timer = null;
+
+      // build dots
+      slides.forEach((s,i)=>{
+        const btn = document.createElement('button');
+        btn.className = 'dot';
+        btn.type = 'button';
+        btn.setAttribute('aria-label', `Go to slide ${i+1}`);
+        btn.dataset.index = i;
+        if(i===0) btn.setAttribute('aria-current','true');
+        else btn.setAttribute('aria-current','false');
+        dotsWrap.appendChild(btn);
+      });
+      const dots = Array.from(dotsWrap.children);
+
+      // update UI
+      function updateUI(){
+        slidesContainer.style.transform = `translateX(-${index*100}%)`;
+        slides.forEach((s,i)=> {
+          const hidden = i === index ? 'false' : 'true';
+          s.setAttribute('aria-hidden', hidden);
+        });
+        dots.forEach((d,i)=>{
+          d.setAttribute('aria-current', i===index ? 'true' : 'false');
+        });
+      }
+
+      function goTo(i){
+        index = ((i % total) + total) % total;
+        updateUI();
+      }
+
+      function next(){ goTo(index+1) }
+      function prev(){ goTo(index-1) }
+
+      // autoplay
+      function startAutoplay(){
+        stopAutoplay();
+        timer = setInterval(()=> next(), AUTOPLAY_MS);
+      }
+      function stopAutoplay(){
+        if(timer){ clearInterval(timer); timer = null; }
+      }
+
+      // events
+      nextBtn.addEventListener('click', ()=>{ next(); startAutoplay(); });
+      prevBtn.addEventListener('click', ()=>{ prev(); startAutoplay(); });
+      dots.forEach(d => d.addEventListener('click', (e)=>{ goTo(+e.currentTarget.dataset.index); startAutoplay(); }));
+
+      // pause on hover & focus
+      slider.addEventListener('mouseenter', stopAutoplay);
+      slider.addEventListener('mouseleave', startAutoplay);
+      slider.addEventListener('focusin', stopAutoplay);
+      slider.addEventListener('focusout', startAutoplay);
+
+      // keyboard nav (left/right), but avoid when typing in inputs
+      window.addEventListener('keydown', (e)=>{
+        const tag = document.activeElement && document.activeElement.tagName;
+        if(tag === 'INPUT' || tag === 'TEXTAREA' || document.activeElement.isContentEditable) return;
+        if(e.key === 'ArrowLeft'){ prev(); startAutoplay(); }
+        if(e.key === 'ArrowRight'){ next(); startAutoplay(); }
+      });
+
+      // visibility API - pause autoplay when tab not visible
+      document.addEventListener('visibilitychange', ()=>{
+        if(document.hidden) stopAutoplay();
+        else startAutoplay();
+      });
+
+      // touch / swipe support
+      let startX = 0, currentX = 0, isDragging = false;
+      const threshold = 0.18; // fraction of width to trigger slide
+
+      slidesContainer.addEventListener('touchstart', (e)=>{
+        stopAutoplay();
+        isDragging = true;
+        startX = e.touches[0].clientX;
+        slidesContainer.style.transition = 'none';
+      }, {passive:true});
+
+      slidesContainer.addEventListener('touchmove', (e)=>{
+        if(!isDragging) return;
+        currentX = e.touches[0].clientX;
+        const dx = currentX - startX;
+        const percent = (dx / slider.clientWidth) * 100;
+        slidesContainer.style.transform = `translateX(${ -index*100 + percent }%)`;
+      }, {passive:true});
+
+      function touchEndHandler(){
+        if(!isDragging) return;
+        isDragging = false;
+        slidesContainer.style.transition = '';
+        const dx = currentX - startX;
+        const abs = Math.abs(dx);
+        if(abs > slider.clientWidth * threshold){
+          if(dx < 0) next(); else prev();
+        } else {
+          goTo(index); // snap back
+        }
+        startAutoplay();
+      }
+
+      slidesContainer.addEventListener('touchend', touchEndHandler);
+      slidesContainer.addEventListener('touchcancel', touchEndHandler);
+
+      // initialize
+      updateUI();
+      startAutoplay();
+
+      // accessibility: allow dots to be focused via keyboard
+      dots.forEach(d => d.addEventListener('keydown', (e)=>{
+        if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); d.click(); }
+      }));
+
+      // expose goTo on window for debugging (optional)
+      window.heroGoTo = goTo;
+    })();
+  </script>
+</body>
+</html>
+{% include "home2.html" %}
+{% include "products.html" %}
+{% include "footer.html" %}
+{% endblock %}
+<!-- .slide::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.45) 70%);
+      pointer-events:none;
+    } -->
+

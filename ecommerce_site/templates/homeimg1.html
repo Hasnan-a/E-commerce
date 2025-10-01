@@ -1,0 +1,543 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+
+
+    .sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .navbar-brand{
+  text-decoration: none;
+  color: #333;
+  font-size: 29px;
+  padding: 18px;
+    }
+.navbar {
+      background: #fff;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: top 0.3s;
+  width: 100%;
+  height: 60px;
+}
+ul{
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  padding: 25px;
+  font-size: 19px;
+
+}
+
+.navbar ul li a {
+    position: relative;
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px; 
+    width: 0;
+    height: 2px;
+    background: #333; 
+    transition: width 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #333; 
+}
+
+.navbar ul li a:hover::after {
+    width: 100%; 
+}
+.localNavbar{
+  width: 100%;
+  height: 85px;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.localNavbar .localNavbar-text{
+  width: 100%;
+  text-align: center;
+  background: #FFD700;
+  height: 50px;
+  padding-top: 10px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #333;
+}
+.localNavbar-icons{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+  padding-left: 20px;
+}
+.localNavbar-icons-1{
+  display: flex;
+  gap: 15px;
+}
+.localNavbar-icons-1 p i{
+  color: #FFD700;
+}
+.localNavbar-icons-1 p{
+  color: #333;
+
+}
+.localNavbar-icons-2 i{
+  padding-right: 10px;
+
+}
+.ourtools{
+    width: 100%;
+    background: whitesmoke;
+    padding: 25px;
+}
+.ourtools h1{
+    text-align: center;
+    color: #333;
+}
+
+.ourtools-img{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding-top: 45px;
+    gap: 30px;
+}
+.ourtools-img img{
+    width: 250px;
+    height: 250px;
+    margin-top: 6px;
+    border-radius: 5px;
+}
+.ourtools-img-1:hover{
+     transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+.ourtools-img-2:hover{
+     transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+.ourtools-img-3:hover{
+     transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+.ourtools-img-4:hover{
+     transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+.ourtools-img-5:hover{
+     transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+.ourtools-img-6:hover{
+     transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+.ourtools-img-7:hover{
+     transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+.ourtools-img-8:hover{
+     transform: translateY(-10px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+.ourtools-img-1,.ourtools-img-2,.ourtools-img-3,.ourtools-img-4,.ourtools-img-5,.ourtools-img-6
+,.ourtools-img-7,.ourtools-img-8{
+    width: 250px;
+    height: 370px;
+    background: #fff;
+    padding-top: 12px;
+    border-radius: 5px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.p{
+    font-size: 17px;
+ text-decoration: none;
+ color: #333;
+ transition: 0.5s;
+}
+.p:hover{
+    color: #FFD700;
+}
+.img-1{
+  gap: 50px;
+  height: 70vh;
+  overflow: hidden;
+  
+}
+.p-span span{
+  color: green;
+}
+.p-span{
+  color: #333;
+  font-size: 19px;
+  padding-top: 7px;
+}
+.img-1-text button{
+  width: 660px;
+  background: #333;
+  color: #fff;
+  margin-top: 13px;
+  height: 40px;
+  border-radius: 40px;
+  font-size: 15px;
+  transition: 0.5s;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+}
+.img-1-text button:hover{
+  background: #FFD700;
+}
+    </style>
+</head>
+<body>
+       <nav class="localNavbar">
+    <div class="localNavbar-text">
+      <p>Summer Sale is Live UPTO 70% OFF</p>
+    </div>
+    <div class="localNavbar-icons">
+      <div class="localNavbar-icons-1">
+    <p><i class="fa-solid fa-phone"></i> +92 324-3338358</p>
+ <p>|</p>
+ <p>   <i class="fa-solid fa-envelope"></i>  E-shop@gmail.com</p>
+</div>
+      <div class="localNavbar-icons-2">
+        <a href="{% url 'logout' %}" style="padding-right: 40px; text-decoration:none;color:#333;"><i class="fa-solid fa-user"></i> Lgin in or Register |</a>
+      </div>
+    </div>
+  </nav>
+<nav class="navbar" id="mainNavbar">
+      <a class="navbar-brand" href="/">E-Shop</a>
+     <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/cart/">Organics</a></li>
+            <li><a href="/contact/">Contact</a></li>
+        </ul>
+</nav>
+
+<section class="toolSection" id="toolSection">
+    <div class="ourtools">
+ <h1>KITCHEN ESSENTIALS</h1>
+ <div class="ourtools-img">
+
+     <!-- =================== images ======================= -->
+    <div class="ourtools-img-1">
+   <a href="" id="product-link" class="p">
+  Translucent Meatball Maker, <br> Kitchen Extruded...</a>
+   <a href="" id="product-link-2"><img src="/static/img/mikce.jpeg" alt=""></a>
+<br>
+        <p style="padding-top: 6px;color:red;">Rs.1,599.00</p>
+    </div>
+
+    <div class="ourtools-img-2">
+        <a href="" class="p" id="product-link-3">Multifunctional Electric Hot Pot,<br> Nonstick Hot...</a>
+        <a href="" id="product-link-4"><img src="/static/img/hotpot.jpeg" alt=""></a>
+        <br>
+        <p style="padding-top: 6px;color:red;">Rs.2,499.00</p>
+    </div>
+    <div class="ourtools-img-3">
+        <a href="" class="p" id="product-link-5">4 Grids Dried Fruit Tray With  <br> Dust Proo...</a>
+        <a href="" id="product-link-6"><img src="/static/img/tray.jpeg" alt=""></a>
+        <br>
+        <p style="padding-top: 6px;color:red;">Rs.1,799.00</p>
+    </div>
+    <div class="ourtools-img-4">
+        <a href="" class="p" id="product-link-7">Multipurpose Stainless Steel Stove <br> Heat... </a>
+        <a href="" id="product-link-8"><img src="/static/img/tawa.jpeg" alt=""></a>
+        <br>
+        <p style="padding-top: 6px;color:red;">Rs.499.00</p>
+    </div>
+    <div class="ourtools-img-5">
+        <a href="" class="p" id="product-link-9">Double Sided Sandwich Maker, <br> Non Stick...</a>
+        <a href="" id="product-link-10"><img src="/static/img/sandwitchmakeer.jpeg" alt=""></a>
+        <br>
+        <p style="padding-top: 6px;color:red;">Rs.999.00</p>
+    </div>
+    <div class="ourtools-img-6">
+        <a href="" class="p" id="product-link-11">Double Side Sandwich Maker, <br> Non Stick ... </a>
+        <a href="" id="product-link-12"><img src="/static/img/eggtray.jpeg" alt=""></a>
+        <br>
+        <p style="padding-top: 6px;color:red;">Rs.250.00</p>
+    </div>
+ 
+    <div class="ourtools-img-7">
+        <a href="" class="p" id="product-link-13">Egg Shell Opener, Quick Peel And <br> Yolk Separator... </a>
+        <a href="" id="product-link-14"><img src="/static/img/eggshell.jpeg" alt=""></a>
+        <br>
+        <p style="padding-top: 6px;color:red;">Rs.450.00</p>
+    </div>
+    <div class="ourtools-img-8">
+        <a href="" class="p" id="product-link-15">Set Of 3 Superfine Fiber <br> Kitchen Dishwashing... </a>
+        <a href="" id="product-link-16"><img src="/static/img/towel.jpeg" alt=""></a>
+        <br>
+        <p style="padding-top: 6px;color:red;">Rs.450.00</p>
+    </div>
+ </div>
+ </div>
+</section>
+ <!-- --- img1 ---  -->
+ <div class="img-1" style="display: none; margin-top:0px; padding: 45px; "id="loginOverlay">
+    <div class="img-1-img">
+      <img src="/static/img/mikce.jpeg" alt="" style="height: 400px;">
+    </div>
+  <div class="img-1-text">
+    <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Translucent Meatball Maker, Kitchen  <br>Extruded Meatball Making Tool, Meat Ball  Maker Mold, Plastic Meatball Shaper</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+  </div>
+</div>
+ <!-- --- img2 ---  -->
+ <div class="img-1" style="display: none; margin-top:0px; padding: 45px;"id="loginOverlay2">
+    <div class="img-1-img">
+      <img src="/static/img/hotpot.jpeg" alt="" style="height: 400px; width: 450px;">
+    </div>
+  <div class="img-1-text">
+    <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Multifunctional Electric Hot Pot, Nonstick Hot Pot Cooker & Steamer, Household Electric Heating Pot, Detachable Induction Cooker</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+  </div>
+</div>
+ <!-- --- img3 ----  -->
+ <div class="img-1" style="display: none; margin-top:0px; padding: 45px;"id="loginOverlay3">
+    <div class="img-1-img">
+      <img src="/static/img/tray.jpeg" alt="" style="height: 400px; width: 450px;">
+    </div>
+  <div class="img-1-text">
+    <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">4 Grids Dried Fruit Tray With Transparent Lid, Dust Proof Fruit Storage Basin, Candy Snack Storage Basket, Dry Fruit Portion Pot With Lid</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+  </div>
+</div>
+ <!-- --- img4 ---  -->
+ <div class="img-1" style="display: none; margin-top:0px; padding: 45px;"id="loginOverlay4">
+    <div class="img-1-img">
+      <img src="/static/img/tawa.jpeg" alt="" style="height: 400px; width: 450px;">
+    </div>
+  <div class="img-1-text">
+    <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Multipurpose Stainless Steel Stove Heat Diffuser, Foldable Kitchen Stove Flame Guard Simmer Plate, Durable Gas Stove Anti Scalding Mat</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+  </div>
+</div>
+ <!-- --- img5 ---  -->
+ <div class="img-1" style="display: none; margin-top:0px; padding: 45px;"id="loginOverlay5">
+    <div class="img-1-img">
+      <img src="/static/img/sandwitchmakeer.jpeg" alt="" style="height: 400px; width: 450px;">
+    </div>
+  <div class="img-1-text">
+  <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Double Sided Sandwich Maker, Non Stick Iron Bread Toast Machine, Manual Mini Sandwich Maker, Portable Sandwich Maker Machine</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+  </div>
+</div>
+ <!-- --- img6 ---  -->
+ <div class="img-1" style="display: none; margin-top:0px; padding: 45px;"id="loginOverlay6">
+    <div class="img-1-img">
+      <img src="/static/img/eggtray.jpeg" alt="" style="height: 400px; width: 450px;">
+    </div>
+  <div class="img-1-text">
+    <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">15 Grids Egg Storage Box, Refrigerator Egg Organizer, Egg Storage Tray, Portable Eggs Dispenser</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+  </div>
+</div>
+ <!-- --- img7 ---  -->
+ <div class="img-1" style="display: none; margin-top:0px; padding: 45px;"id="loginOverlay7">
+    <div class="img-1-img">
+      <img src="/static/img/eggshell.jpeg" alt="" style="height: 400px; width: 450px;">
+    </div>
+  <div class="img-1-text">
+    <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Set Of 3 Superfine Fiber Kitchen Dishwashing Cloth, Water Absorbent Cleaning Cloth, Multipurpose Household Cleaning Tools</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+  </div>
+</div>
+ <!-- --- img8 ---  -->
+ <div class="img-1" style="display: none; margin-top:0px; padding: 45px;"id="loginOverlay8">
+    <div class="img-1-img">
+      <img src="/static/img/towel.jpeg" alt="" style="height: 400px; width: 450px;">
+    </div>
+  <div class="img-1-text">
+    <p style="font-size: 19px; color:#333;">E-Shop</p>
+  <h1 style="font-size: 40px; padding-top:9px;color:#333">Set Of 3 Superfine Fiber Kitchen Dishwashing Cloth, Water Absorbent Cleaning Cloth, Multipurpose Household Cleaning Tools</h1>
+  <br>
+  <p style="font-size: 19px;color:#333;">Product SKU: N/A</p>
+  <p class="p-span">Available: <span>In stock</span></p>
+  <a href="/contact/"><button>Order it now</button></a>
+  </div>
+</div>
+  <script>
+    const navbar = document.getElementById("mainNavbar");
+    const stickyPoint = navbar.offsetTop;
+    window.onscroll = function() {
+      if (window.pageYOffset >= stickyPoint) {
+        navbar.classList.add("sticky");
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    };
+  </script>
+<script>
+            const loginBtn = document.getElementById('loginBtn');
+    const toolSection = document.getElementById('toolSection');
+    const loginOverlay = document.getElementById('loginOverlay');
+    const loginOverlay2 = document.getElementById('loginOverlay2');
+    const loginOverlay3 = document.getElementById('loginOverlay3');
+    const loginOverlay4 = document.getElementById('loginOverlay4');
+    const loginOverlay5 = document.getElementById('loginOverlay5');
+    const loginOverlay6 = document.getElementById('loginOverlay6');
+    const loginOverlay7 = document.getElementById('loginOverlay7');
+    const loginOverlay8 = document.getElementById('loginOverlay8');
+
+    
+
+document.getElementById("product-link").addEventListener("click", function(e) {
+    e.preventDefault();
+      toolSection.style.display = 'none';     
+      loginOverlay.style.display = 'flex'; 
+});
+
+
+document.getElementById("product-link-2").addEventListener("click", function(e) {
+    e.preventDefault();
+       toolSection.style.display = 'none';     
+      loginOverlay.style.display = 'flex'; 
+});
+document.getElementById("product-link-3").addEventListener("click", function(e) {
+    e.preventDefault();
+      toolSection.style.display = 'none';     
+      loginOverlay2.style.display = 'flex'; 
+});
+
+
+document.getElementById("product-link-4").addEventListener("click", function(e) {
+    e.preventDefault();
+       toolSection.style.display = 'none';     
+      loginOverlay2.style.display = 'flex'; 
+});
+document.getElementById("product-link-5").addEventListener("click", function(e) {
+    e.preventDefault();
+      toolSection.style.display = 'none';     
+      loginOverlay3.style.display = 'flex'; 
+});
+
+
+document.getElementById("product-link-6").addEventListener("click", function(e) {
+    e.preventDefault();
+       toolSection.style.display = 'none';     
+      loginOverlay3.style.display = 'flex'; 
+});
+document.getElementById("product-link-7").addEventListener("click", function(e) {
+    e.preventDefault();
+      toolSection.style.display = 'none';     
+      loginOverlay4.style.display = 'flex'; 
+});
+
+
+document.getElementById("product-link-8").addEventListener("click", function(e) {
+    e.preventDefault();
+       toolSection.style.display = 'none';     
+      loginOverlay4.style.display = 'flex'; 
+});
+document.getElementById("product-link-9").addEventListener("click", function(e) {
+    e.preventDefault();
+      toolSection.style.display = 'none';     
+      loginOverlay5.style.display = 'flex'; 
+});
+
+
+document.getElementById("product-link-10").addEventListener("click", function(e) {
+    e.preventDefault();
+       toolSection.style.display = 'none';     
+      loginOverlay5.style.display = 'flex'; 
+});
+document.getElementById("product-link-11").addEventListener("click", function(e) {
+    e.preventDefault();
+      toolSection.style.display = 'none';     
+      loginOverlay6.style.display = 'flex'; 
+});
+
+
+document.getElementById("product-link-12").addEventListener("click", function(e) {
+    e.preventDefault();
+       toolSection.style.display = 'none';     
+      loginOverlay6.style.display = 'flex'; 
+});
+document.getElementById("product-link-13").addEventListener("click", function(e) {
+    e.preventDefault();
+      toolSection.style.display = 'none';     
+      loginOverlay7.style.display = 'flex'; 
+});
+
+
+document.getElementById("product-link-14").addEventListener("click", function(e) {
+    e.preventDefault();
+       toolSection.style.display = 'none';     
+      loginOverlay7.style.display = 'flex'; 
+});
+document.getElementById("product-link-15").addEventListener("click", function(e) {
+    e.preventDefault();
+      toolSection.style.display = 'none';     
+      loginOverlay8.style.display = 'flex'; 
+});
+
+
+document.getElementById("product-link-16").addEventListener("click", function(e) {
+    e.preventDefault();
+       toolSection.style.display = 'none';     
+      loginOverlay8.style.display = 'flex'; 
+});
+</script>
+</body>
+</html>
+
+{% endblock %}
