@@ -448,7 +448,17 @@ ul{
   </div>
 </section>
 
-
+  <script>
+    const navbar = document.getElementById("mainNavbar");
+    const stickyPoint = navbar.offsetTop;
+    window.onscroll = function() {
+      if (window.pageYOffset >= stickyPoint) {
+        navbar.classList.add("sticky");
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    };
+  </script>
 <script>
 const form = document.getElementById('contactFormElement');
 const successMsg = document.getElementById('successMessage');
